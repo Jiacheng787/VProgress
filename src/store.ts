@@ -7,24 +7,26 @@ export const state = reactive({
   amount: 0, // 当前进度百分比
 })
 
-const run = () => {
+const _run = () => {
   // 进度达到 90% 即停止
   if (state.amount >= 90) return;
   setTimeout(() => {
     // 每次增加 3%
-    state.amount = state.amount + 3;
-    run();
+    state.amount += 3;
+    _run();
   }, 500)
 }
 
+// 启动
 export const start = () => {
   // 初始进度设为 15%
   state.amount = 15;
   // 显示进度条
   state.start = true;
-  run();
+  _run();
 }
 
+// 停止
 export const stop = () => {
   // 加载结束直接到 100% ，顺便结束调用 run 方法
   state.amount = 100;
