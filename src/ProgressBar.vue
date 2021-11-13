@@ -17,11 +17,11 @@ import { state } from "./store";
 // TODO: script setup 中的 defineProps 如何定义默认值
 const props = defineProps<{
   height?: number;
-  color?: string;
+  // color?: string;
 }>();
 
 const height = computed(() => props.height || 8);
-const color = computed(() => props.color || "#79b8ff");
+// const color = computed(() => props.color || "#79b8ff");
 </script>
 
 <style scoped>
@@ -40,6 +40,7 @@ const color = computed(() => props.color || "#79b8ff");
   height: 100%;
   width: v-bind("state.amount + '%'");
   transition: width 0.4s ease 0s;
-  background-color: v-bind(color);
+  background-image: linear-gradient(139deg, #fb8817, #ff4b01, #c12127, #e02aff);
+  /* background-color: v-bind(color); */
 }
 </style>
